@@ -21,7 +21,7 @@ def number(number):
 def delete():
     text_field.delete(0, END)
     global first_number
-    first_number = 0    
+    first_number = 0
 
 
 def add():
@@ -82,22 +82,27 @@ def coma():
 def equal():
     second_number = text_field.get()
     text_field.delete(0, END)
+    global label
 
     if sign == "add":
         result = Decimal(first_number) + Decimal(second_number)
         text_field.insert(0, result)
+        label = Label(root, text=result).grid(row=0, column=0)
 
     elif sign == "subtract":
         result = Decimal(first_number) - Decimal(second_number)
         text_field.insert(0, result)
+        label = Label(root, text=result).grid(row=0, column=0)
 
     elif sign == "multiple":
         result = Decimal(first_number) * Decimal(second_number)
         text_field.insert(0, result)
+        label = Label(root, text=result).grid(row=0, column=0)
 
     elif sign == "divide":
         result = Decimal(first_number) / Decimal(second_number)
         text_field.insert(0, result)
+        label = Label(root, text=result).grid(row=0, column=0)
 
 
 button_0 = Button(root, text="0", width=BUTTON_WIDTH*2, height=BUTTON_HEIGHT, command=lambda: number(0)).grid(row=5, column=0, columnspan=2, padx=PADDING, pady=PADDING)
